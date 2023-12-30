@@ -41,7 +41,7 @@
                                 <th class=" px-6 py-4 text-center text-white">Product Image </th>
                             </tr>
                             <tr>
-                            <td class=" px-6 py-4 "><center><img src="{{ asset($product->url) }}" style="height: 400px; width: 500px; border-radius: 20px;"></center></td>
+                            <td class=" px-6 py-4 "><center><img src="{{ asset('storage/'.$product->url) }}" style="height: 400px; width: 500px; border-radius: 20px;"></center></td>
                             </tr>
                         </tbody>
                     </table>

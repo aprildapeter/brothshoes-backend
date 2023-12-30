@@ -45,7 +45,7 @@
                                 <th class=" px-6 py-4 text-center text-white">Category Image </th>
                             </tr>
                             <tr>
-                            <td class=" px-6 py-4 "><center><img src="{{ asset($category->img_url) }}" style="height: 400px; width: 500px; border-radius: 20px;"></center></td>
+                            <td class=" px-6 py-4 "><center><img src="{{ asset('storage/'.$category->img_url) }}" style="height: 400px; width: 500px; border-radius: 20px;"></center></td>
                             </tr>
                         </tbody>
                     </table>
