@@ -78,7 +78,9 @@ class ProductCategoryController extends Controller
         //     }
         // }
         $data = $request->all();
-        $data['img_url'] = $request->file('img_url')->store('img/kategori', 'public');
+        $photo = $request->file('img_url');
+        $originalName = $photo->getClientOriginalName();
+        $data['img_url'] = $photo->storeAs('img/kategori',$originalName, 'public');
         // $file = $request->file('image')->store('public/image');
 
         ProductCategory::create($data);

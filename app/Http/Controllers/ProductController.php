@@ -68,7 +68,11 @@ class ProductController extends Controller
     public function store(ProductRequest $request)
     {
         $data = $request->all();
-        $data['url'] = $request->file('url')->store('img/product', 'public');
+        $photo = $request->file('url');
+        $originalName = $photo->getClientOriginalName();
+        $data['url'] = $photo->storeAs('img/product', $originalName, 'public');
+        // $data = $request->all();
+        // $data['url'] = $request->file('url')->store('img/product', 'public');
         Product::create($data);
 
         return redirect()->route('dashboard.product.index');
@@ -138,7 +142,11 @@ class ProductController extends Controller
     {
         $data = $request->all();
 
-        $data['url'] = $request->file('url')->store('assets/product', 'public');
+        // $data = $request->all();
+        $photo = $request->file('url');
+        $originalName = $photo->getClientOriginalName();
+        $data['url'] = $photo->storeAs('img/product', $originalName, 'public');
+        // $data['url'] = $request->file('url')->store('assets/product', 'public');
         $product->update($data);
 
         return redirect()->route('dashboard.product.index');
